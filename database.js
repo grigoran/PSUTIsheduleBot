@@ -16,7 +16,7 @@ function getWeekNumber() {
   let oneSep = new Date(currentdate.getFullYear(), 8, 1);
   let numberOfDays = Math.floor((currentdate - oneSep) / (24 * 60 * 60 * 1000));
   let result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
-  return result % 2;
+  return (result + 1) % 2;
 }
 
 function exDbWeek(week, callback) {
@@ -32,7 +32,7 @@ function exDbWeek(week, callback) {
           res += "\n" + row.name + ":\n";
           currentDay = row.name;
         }
-        res += row.subject + "\n";
+        res += row.subject + " " + row.cabinet + "\n";
       });
       callback(res);
     }
