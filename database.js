@@ -47,7 +47,7 @@ function exDbDay(day, callback) {
     (err, rows) => {
       if (err) console.log(err);
       rows.forEach((row) => {
-        res += row.subject + "\n";
+        res += row.subject + " " + row.cabinet + "\n";
       });
       callback(res);
     }
